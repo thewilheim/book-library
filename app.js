@@ -21,10 +21,9 @@ class Book {
 
 
     static removeBook(element) {
-    
-        
-        if (element.classList.contains('deleteBtn')) {
-            element.parentElement.parentElement.remove()
+
+        if(element.classList.contains('deleteBtn')){
+            element.parentElement.parentElement.remove();
         }
 
 }
@@ -36,7 +35,7 @@ class UI {
 
     static displayBooks(){
 
-        const book = new Book(`Harry Potter and the Philosopher's Stone`, 'J. K. Rowling', 223);
+        const book = new Book(`Harry Potter and the Philosopher's Stone`, 'J. K. Rowling', 223, 'Completed');
 
          UI.addBookToLibrary(book);
 
@@ -56,11 +55,13 @@ class UI {
                 <div class="card"> 
                 <div class="details">
                 <h2>Title</h2>
-                <p>${book.title}</p>
+                <p class="bTitle">${book.title}</p>
                 <h2>Author</h2>
                 <p>${book.author}</p>
                 <h2>Pages</h2>
                 <p>${book.pages}</p>
+                <h2>Status</h2>
+                <p>${book.read}</p>
                 <img src="img/delete_black_24dp.svg" class="deleteBtn" alt="">
                 </div>
                 </div>`;
@@ -85,8 +86,11 @@ addBook.addEventListener('click', (e) => {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
+    let read = document.querySelector('input[name="read-status"]:checked').value;
 
-    const book = new Book(title, author, pages);
+
+
+    const book = new Book(title, author, pages, read);
 
     UI.addBookToLibrary(book);
 

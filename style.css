@@ -79,7 +79,7 @@
     padding: 2rem;
     align-items: flex-start;
     justify-content: center;
-    height: 400px;
+    height: 500px;
     flex-direction: column;
     box-shadow: 5px 5px 5px rgba(54, 54, 54, 0.418);
     border-radius: 5px;
@@ -99,7 +99,7 @@
     font-size: 2rem;
   }
 
-  input{
+  #title, #author, #pages, #add{
     display: block;
     margin-bottom: 1rem;
     padding: .5em;
@@ -119,6 +119,11 @@
 #add:active {
   box-shadow: none;
   transform: scaleX(.95);
+}
+
+#rYes, #rNo {
+  display: inline-block;
+  margin-bottom:5rem;
 }
 
   .error {
