@@ -17,15 +17,24 @@ class Book {
         this.author = author;
         this.pages = pages;
         this.read = read;
+        this.id = Math.floor(Math.random() * 100);
     }
 
 
     static removeBook(element) {
 
-        if(element.classList.contains('deleteBtn')){
-            element.parentElement.parentElement.remove();
+        let index;
+
+        for (let i = 0; i < myLibrary.length; i++) { 
+           if(element.dataset.indexNumber == myLibrary[i].id) {
+               index = i;
+           }
         }
 
+        if(element.classList.contains('deleteBtn')){ 
+        myLibrary.splice(index, 1);
+        element.parentElement.parentElement.remove();
+        }
 }
 
 }
@@ -55,14 +64,14 @@ class UI {
                 <div class="card"> 
                 <div class="details">
                 <h2>Title</h2>
-                <p class="bTitle">${book.title}</p>
+                <p>${book.title}</p>
                 <h2>Author</h2>
                 <p>${book.author}</p>
                 <h2>Pages</h2>
                 <p>${book.pages}</p>
                 <h2>Status</h2>
                 <p>${book.read}</p>
-                <img src="img/delete_black_24dp.svg" class="deleteBtn" alt="">
+                <img src="img/delete_black_24dp.svg" class="deleteBtn" alt="" data-index-number="${book.id}">
                 </div>
                 </div>`;
         }
